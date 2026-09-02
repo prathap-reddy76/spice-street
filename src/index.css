@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors - Warm Indian Restaurant Palette */
+  --color-brand-50: #fdf8f0;
+  --color-brand-100: #f9ecd8;
+  --color-brand-200: #f2d5ac;
+  --color-brand-300: #e9b876;
+  --color-brand-400: #df9640;
+  --color-brand-500: #d47a1e;
+  --color-brand-600: #b85f15;
+  --color-brand-700: #984714;
+  --color-brand-800: #7c3917;
+  --color-brand-900: #663016;
+  --color-brand-950: #3a1709;
+
+  /* Accent - Deep spice red */
+  --color-accent-50: #fef2f2;
+  --color-accent-100: #fee2e2;
+  --color-accent-200: #fecaca;
+  --color-accent-300: #fca5a5;
+  --color-accent-400: #f87171;
+  --color-accent-500: #c0392b;
+  --color-accent-600: #a93226;
+  --color-accent-700: #8b2920;
+  --color-accent-800: #6e211a;
+  --color-accent-900: #501a14;
+
+  /* Neutral Warm */
+  --color-warm-50: #faf9f7;
+  --color-warm-100: #f5f3ef;
+  --color-warm-200: #e8e4dd;
+  --color-warm-300: #d4cec3;
+  --color-warm-400: #b8b0a1;
+  --color-warm-500: #9c9283;
+  --color-warm-600: #7d7366;
+  --color-warm-700: #5e564c;
+  --color-warm-800: #3d3832;
+  --color-warm-900: #1f1c18;
+
+  /* Font families */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-warm-800);
+    background-color: var(--color-warm-50);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-warm-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-warm-500);
+}
